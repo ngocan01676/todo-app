@@ -1,1 +1,31 @@
-<p>task-add works!</p>
+<div class="container m-auto">
+  <h3 class="text-center">New Task</h3>
+  <form class="form" action="">
+    <div class="form-controls">
+      <input type="text" placeholder="Add new task ..."/>
+    </div>
+    <div class="form-controls flex-column mt-3 mb-3">
+      <label class="text-medium mb-2">Description</label>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-row gap-10">
+      <div class="form-controls flex-column">
+        <label class="text-medium mb-2">Due date</label>
+        <input type="date" id="start" name="select-date"
+          value="2018-07-22"
+          min="2018-01-01" max="2018-12-31">
+      </div>
+      <div class="form-controls flex-column">
+        <label class="text-medium mb-2">Priority</label>
+        <select name="" id="">
+          <option value="normal">normal</option>
+          <option value="low">low</option>
+          <option value="high">high</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-controls mt-3">
+      <button type="submit" class="btn">Add</button>
+    </div>
+  </form>
+</div>

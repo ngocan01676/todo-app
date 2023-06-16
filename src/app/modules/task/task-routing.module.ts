@@ -6,7 +6,7 @@ import { TaskAddComponent } from './pages/task-add/task-add.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'task',
     children: [
       {
         path: '',component: TaskListComponent
