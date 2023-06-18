@@ -1,1 +1,61 @@
-<p>task-list works!</p>
+<ng-container *mobxAutorun>
+    <div class="container m-auto">
+        <div class="content-wrapper" id="style-3">
+            <h3 class="text-center">Todo list</h3>
+            <input class="search" type="search" [(ngModel)]="searchTerm" />
+            <div class="form-wrapper">
+                <form class="form-horizontal" [formGroup]="model">
+                    <div class="form-group" *ngIf="tasksControls && tasksControls.length > 0" formArrayName="tasks">
+                        <div [formGroupName]="i"
+                         *ngFor="let item of tasksControls.controls | taskFilter: searchTerm; let i = index; let last = last" class="item">
+                        <div class="header d-flex">
+                            <div class="block-left d-flex">
+                                <input type="checkbox" class="checkbox" formControlName="isComplete" (click)="onCheckboxClick()" />
+                                <p>{{ item.value.title }}</p>
+                            </div>
+                            <div class="block-right d-flex">
+                                <button class="btn view-details" (click)="toggleItem(item)">Detail</button>
+                                <button class="btn remove" (click)="removeItem(i)">Remove</button>
+                            </div>
+                        </div>
+                        <div class="content-body" [hidden]="!item.get('isToggle')?.value">
+                            <div class="form-controls">
+                                <input class="input-title" formControlName="title" type="text" placeholder="Add new task ..."/>
+                              </div>
+                              <div class="form-controls flex-column mt-3 mb-3">
+                                <label class="text-medium mb-2">Description</label>
+                                <textarea formControlName="description" name="" id="" cols="30" rows="10"></textarea>
+                              </div>
+                              <div class="form-row gap-10">
+                                <div class="form-controls flex-column">
+                                  <label class="text-medium mb-2">Due date</label>
+                                  <input  formControlName="dueDate" type="date" id="start" name="select-date"
+                                    [min]="currentDate">
+                                </div>
+                                <div class="form-controls flex-column">
+                                  <label class="text-medium mb-2">Priority</label>
+                                  <select formControlName="pioriry"  name="" id="">
+                                    <option value="normal">normal</option>
+                                    <option value="low">low</option>
+                                    <option value="high">high</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-controls mt-3">
+                                <button class="btn btn-update" (click)="updateTask(item, i)">Update</button>
+                              </div>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bulk-action d-flex" *ngIf="showBulkAction">
+            <div class="item-left"><span>Bulk Action:</span></div>
+            <div class="item-right">
+                <button class="btn btn-primary" (click)="checkDone()">Done</button>
+                <button class="btn btn-danger" (click)="removeAll()">Remove</button>
+            </div>
+        </div>
+    </div>
+</ng-container>

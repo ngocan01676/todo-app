@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "angular-toastify": "^1.0.6",
     "mobx": "^6.9.0",
     "mobx-angular": "^4.7.2",
     "ngx-quicklink": "^0.4.2",

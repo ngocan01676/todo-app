@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./modules/task/task-routing.module').then((m) => m.TaskRoutingModule),
   },
-  { path: '', redirectTo: 'task', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'task', pathMatch: 'full' },
   { path: '404', component: Error404Page },
   { path: '**', redirectTo: '/' + '404' }
 ];

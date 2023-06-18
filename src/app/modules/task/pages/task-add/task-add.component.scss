@@ -27,5 +27,23 @@
     background: green;
     border: none;
     color: #fff;
+    border-radius: 5px;
+    &:hover {
+      background: rgb(130, 212, 130);
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .form .form-row {
+    gap: 0;
+    flex-direction: column;
+    .form-controls {
+      width: 100%;
+      input {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 }
