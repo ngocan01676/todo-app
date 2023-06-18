@@ -2,7 +2,7 @@
     <div class="container m-auto">
         <div class="content-wrapper" id="style-3">
             <h3 class="text-center">Todo list</h3>
-            <input class="search" type="search" [(ngModel)]="searchTerm" />
+            <input class="search" type="search" placeholder="Search ..." [(ngModel)]="searchTerm" />
             <div class="form-wrapper">
                 <form class="form-horizontal" [formGroup]="model">
                     <div class="form-group" *ngIf="tasksControls && tasksControls.length > 0" formArrayName="tasks">
