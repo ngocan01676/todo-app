@@ -33,6 +33,18 @@ export class TaskViewModel {
         const allItemsStr = localStorage.getItem("allTask");
         if (allItemsStr) {
             this.allTask = JSON.parse(allItemsStr);
+            this.allTask = this.allTask.sort(function compareByDate(a: ITask, b: ITask) {
+                const dateA = a.dueDate;
+                const dateB = b.dueDate;
+                if (dateA < dateB) {
+                  return -1;
+                }
+                if (dateA > dateB) {
+                  return 1;
+                }
+                
+                return 0;
+              });
         }
     }
 
